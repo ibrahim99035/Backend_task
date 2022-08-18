@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {% if not no_books %}
+            <div id="search">
+                <form action="", method="POST">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <div class="form-group iny">
+                            {{ form.search.label(class="form-control-label") }}
+                            {% if form.search.errors %}
+                                {{ form.search(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.search.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.search(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        {{ form.submit(class="btn btn-outline-info sea") }}
+                    </div>
+                    {% if done %}
+                        <p>{{ message }}</p>
+                    {% endif%}
+                </form>
+            </div>
+        {% endif %}
+        <div class="body1">
+            {% if no_books %}
+                <div id="defult">
+                    <p>
+                        no books here yet
+                        <br>
+                        try to add a new book from <a href="{{ url_for('new') }}">here</a>.
+                    </p>
+                </div>
+                
+            {% endif %}
+            {% for book in books.items%}
+                <div id="bookList">
+                    <div id="bookCover">
+                        <img src="{{ url_for('static', filename='/covers/'+ book.cover) }}" alt="cover">
+                    </div>
+                    <h3>
+                        <a href="{{ url_for('book', book_id = book.id) }}" id="bookLink">{{ book.title }}</a>
+                    </h3>
+                    <hr>
+                    <p>
+                        Posted in: {{ book.date_posted.strftime('%Y-%m-%d-%H:%M:%S') }}.
+                        <br>
+                        Pages: {{ book.num_of_page }}.
+                        <br>
+                        For the Author: {{book.author}}.
+                    </p>
+                    <hr>
+                    <p>
+                        
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="pagy">
+        {% for page_num in books.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num %}
+                {% if books.page == page_num %}
+                    <a class="btn btn-info mb-4 pagi" href="{{ url_for('index', page=page_num) }}">{{ page_num }}</a>
+                {% else %}
+                    <a class="btn btn-outline-info mb-4 pagi" href="{{ url_for('index', page=page_num) }}">{{ page_num }}</a>
+                {% endif %}
+            {% else %}
+            .....
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
