@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    <div id="bookBody">
+        {% if no_books %}
+            <div id="deful">
+                <p>no books</p>
+            </div>
+        {% endif %}
+        
+        <div id="bookList">
+            <h3>
+                Title: {{ book.title }}
+            </h3>
+            <hr>
+            <p>
+                Posted in: {{ book.date_posted.strftime('%Y-%m-%d-%H:%M:%S') }}.
+                <br>
+                Pages: {{ book.num_of_page }}.
+                <br>
+                For the Author: {{book.author}}.
+            </p>
+            <hr>
+            <p>
+                    
+            </p>
+            <div id="deleteBook">
+                <div id="deleteIconBook">
+                    <form action="{{ url_for('delete_book', book_id=book.id) }}" method="post">
+                        <button type="submit" id="deleteTheBook">
+                            i
+                        </button>
+                        <small>Delete this book!</small>
+                    </form>
+                </div>
+            </div>
+            <div id="update_icon">
+                <span id="updateSpan">
+                    <img src="{{ url_for('static', filename='images/update.png') }}" alt="update icon">
+                    Update
+                </span>
+                <!-- <small>
+                    Update this book!
+                </small> -->
+            </div>
+        </div>
+        <div class="updateBook">
+            <form action="", method="POST", enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <div class="form-group iny">
+                        {{ form.title.label(class="form-control-label") }}
+                        {% if form.title.errors %}
+                            {{ form.title(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.title.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.title(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group iny">
+                        {{ form.author.label(class="form-control-label") }}
+                        {% if form.author.errors %}
+                            {{ form.author(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.author.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.author(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group iny">
+                        {{ form.pages.label(class="form-control-label") }}
+                        {% if form.pages.errors %}
+                            {{ form.pages(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.pages.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.pages(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group iny">
+                        {{ form.cover.label() }}
+                        {{ form.cover(class="form-control-file") }}
+                        {% if form.cover.errors %}
+                            {% for error in form.cover.errors %}
+                                <span class="text-danger">{{ error }}</span><br>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info suby") }}
+                </div>
+            </form>
+        </div>
+    </div> 
+{% endblock %}
