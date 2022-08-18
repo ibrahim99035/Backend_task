@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="about">
+        <div>
+            <h3>
+                Library Web app
+            </h3>
+            <p>
+                this website is a task for backend session in Megaproj summer training.
+            </p>
+            <img src="{{ url_for('static', filename='images/megaLogo.png') }}" alt="MegaprojLogo">
+        </div>
+        <div>
+            <p>
+                it is an Library app that does not require login.
+                <br>
+                this app has 2 forms <br>
+                one form to store books data. <br>
+                the other form to update the data. <br>
+            </p>
+        </div>
+    </div>
+{% endblock %}
