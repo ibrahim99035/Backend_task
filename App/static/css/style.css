@@ -154,8 +154,9 @@ a{
     border-radius: 5px;
     background-color: rgb(38, 105, 112);
     display: none;
+    transition: all 0.5s ease-in-out;
 }
-.show{
+.showDiv{
     display: block;
 }
 /*cover*/
@@ -172,4 +173,21 @@ a{
     height: 15rem;
     width: 98%;
     margin: 1%;
+}
+/*up button in base*/
+.up{
+    position: fixed;
+    bottom: 10px;
+    right: -50px; 
+    background-color: rgb(55, 145, 145);
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 3px;
+    transition: all 0.5s ease-in-out;
+}
+.up.show{
+    right: 10px;
 }

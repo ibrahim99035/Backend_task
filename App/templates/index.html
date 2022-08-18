@@ -46,12 +46,12 @@
             {% endif %}
             {% for book in books.items%}
                 <div id="bookList">
-                    <div id="bookCover">
-                        <img src="{{ url_for('static', filename='/covers/'+ book.cover) }}" alt="cover">
-                    </div>
                     <h3>
                         <a href="{{ url_for('book', book_id = book.id) }}" id="bookLink">{{ book.title }}</a>
                     </h3>
+                    <div id="bookCover">
+                        <img src="{{ url_for('static', filename='/covers/'+ book.cover) }}" alt="cover">
+                    </div>
                     <hr>
                     <p>
                         Posted in: {{ book.date_posted.strftime('%Y-%m-%d-%H:%M:%S') }}.

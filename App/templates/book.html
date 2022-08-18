@@ -15,6 +15,9 @@
             <h3>
                 Title: {{ book.title }}
             </h3>
+            <div id="bookCover">
+                <img src="{{ url_for('static', filename='/covers/'+ book.cover) }}" alt="cover">
+            </div>
             <hr>
             <p>
                 Posted in: {{ book.date_posted.strftime('%Y-%m-%d-%H:%M:%S') }}.
@@ -106,4 +109,5 @@
             </form>
         </div>
     </div> 
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 {% endblock %}
