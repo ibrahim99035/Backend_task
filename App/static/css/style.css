@@ -191,3 +191,23 @@ a{
 .up.show{
     right: 10px;
 }
+
+/*contacts*/
+.conn{
+    padding-top: 2rem;
+}
+
+#intro{
+    margin-top: 2rem;
+    border: #ccc 1px solid;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #2b7e98;
+}
+#myImage{
+    text-align: center;
+}
+#myImage img{
+    width: 10rem;
+    border-radius: 50%;
+}

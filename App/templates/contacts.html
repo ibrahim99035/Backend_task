@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div id="myImage">
+            <img src="{{ url_for('static', filename='images/me/ibrahim.jpeg') }}" alt="This is me">
+        </div>
+        <div>
+            <div id="intro">
+                <h4>
+                    I am Ibrahim abu eita <br>
+                    21 years old.
+                    Software developer, graduated from FCI tanta university.
+                </h4>
+            </div>
+            <div id="contacts">
+                <div class="conn">
+                    <img src="{{ url_for('static', filename='images/contacts/gmail.png') }}" alt="gmail">
+                    <a href="mailto:ebrahimaboeita990@gmail.com">Gmail</a><br>
+                </div>
+                <div class="conn">
+                    <img src="{{ url_for('static', filename='images/contacts/github.png') }}" alt="github">
+                    <a href="https://github.com/ibrahim99035">GitHub</a><br>
+                </div>
+                <div class="conn">
+                    <img src="{{ url_for('static', filename='images/contacts/twitter.png') }}" alt="twitter">
+                    <a href="https://twitter.com/Ebrahim87701156">Twitter</a><br>
+                </div>
+                <div class="conn">
+                    <img src="{{ url_for('static', filename='images/contacts/linkedIn.png') }}" alt="Linkedin">
+                    <a href="https://www.linkedin.com/in/ibrahim-abu-eita-0b2490206/">Linkedin</a><br>
+                </div>
+                <div class="conn">
+                    <img src="{{ url_for('static', filename='images/contacts/whatsapp.png') }}" alt="whatsapp">
+                    <a href="https://wa.me/201061468175">Whatsapp</a><br>
+                </div>
+                <div class="conn">
+                    <img src="{{ url_for('static', filename='images/contacts/Telegram.png') }}" alt="telegram">
+                    <a href="https://t.me/ibrahimaboeita">Telegram</a><br>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
