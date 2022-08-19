@@ -209,8 +209,16 @@ a{
 }
 #myImage{
     text-align: center;
+    margin-top: 1.5rem;
 }
 #myImage img{
     width: 10rem;
     border-radius: 50%;
+}
+
+/*sit map*/
+#map{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
