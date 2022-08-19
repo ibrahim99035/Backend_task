@@ -79,4 +79,4 @@ This page contains the site map for version 1.
 
 ### Site Map
 
-![sitemap](https://raw.githubusercontent.com/ibrahim99035/Backend_task/main/App/static/images/miniMap.png)
+![sitemap](https://github.com/ibrahim99035/Backend_task/blob/main/App/static/images/miniMap.png?raw=true)
