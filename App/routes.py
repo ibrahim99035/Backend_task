@@ -1,3 +1,4 @@
+from datetime import datetime
 from turtle import title
 from flask import Flask, render_template, url_for, request, redirect
 from sqlalchemy import null
@@ -6,6 +7,7 @@ from App.models import Book
 from App.book import Add_Book
 from App.search import PatientSearch
 from App.update import Update_Book
+from App.age import getMyAge
 
 import os
 import secrets
@@ -94,6 +96,7 @@ def demo():
 
 @app.route('/about')
 def about():
+    
     return render_template('about.html', title = 'About')
 
 @app.route('/plan')
@@ -102,4 +105,11 @@ def plan():
 
 @app.route('/contacts')
 def contact():
-    return render_template('contacts.html', title = 'My Info')
+    birthDay = 15
+    birthMonth = 9
+    birthYear = 2001
+    currentDay = datetime.now().day
+    currentMonth = datetime.now().month
+    currentYear = datetime.now().year
+    age = getMyAge.myAge(currentDay, currentMonth, currentYear, birthDay, birthMonth, birthYear)
+    return render_template('contacts.html', title = 'My Info', age = age)
