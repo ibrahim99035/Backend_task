@@ -80,3 +80,5 @@ This page contains the site map for version 1.
 ### Site Map
 
 ![sitemap](https://github.com/ibrahim99035/Backend_task/blob/main/App/static/images/miniMap.png?raw=true)
+
+<img src="http://megaproj.com/images+/homeLogo.png" style="text-align:center;"/>
